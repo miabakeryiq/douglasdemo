@@ -30,6 +30,36 @@
       .nav-links a:hover { background: var(--gold-light); color: var(--gold-dark); }
       .nav-cta { background: var(--gold); color: var(--white) !important; border-radius: 24px !important; padding: 8px 20px !important; font-weight: 600 !important; transition: background 0.15s !important; }
       .nav-cta:hover { background: var(--gold-dark) !important; }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: var(--brown-mid);
+        cursor: pointer;
+        margin-left: 10px;
+        z-index: 101;
+      }
+      @media (max-width: 560px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 70px;
+          right: 0;
+          background: var(--white);
+          flex-direction: column;
+          width: 100%;
+          box-shadow: 0 8px 24px rgba(61, 42, 20, 0.08);
+          border-bottom-left-radius: var(--radius);
+          border-bottom-right-radius: var(--radius);
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-toggle {
+          display: block;
+        }
+      }
       /* ---- SECTIONS ---- */
       section { padding: 80px 5%; }
       .section-inner { max-width: 1200px; margin: auto; }
@@ -82,6 +112,7 @@
             <span>Custom Cakes · Bronx, NY</span>
           </div>
         </a>
+        <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <ul class="nav-links">
           <li><a href="about.html">About</a></li>
           <li><a href="index.html#menu">Our Cakes</a></li>
