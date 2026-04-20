@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order – Smiles by Douglas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root { --gold: #c9973a; --gold-light: #f5e6c8; --gold-dark: #8a6220; --cream: #fbf7f0; --brown: #3d2a14; --brown-mid: #6b4c2a; --blush: #f5e0d8; --white: #ffffff; --text: #2a1a0a; --muted: #7a6050; --border: rgba(180, 140, 80, 0.2); --font-display: "Playfair Display", Georgia, serif; --font-body: "DM Sans", sans-serif; --radius: 8px; --shadow: 0 4px 24px rgba(61, 42, 20, 0.1); }
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font-body); background: var(--cream); color: var(--text); line-height: 1.7; }
+      img { display: block; max-width: 100%; }
+      a { text-decoration: none; color: inherit; }
+      /* ---- TOP BAR ---- */
+      .topbar { background: var(--brown); color: var(--gold-light); font-size: 13px; display: flex; justify-content: space-between; align-items: center; padding: 8px 5%; gap: 12px; flex-wrap: wrap; }
+      .topbar a { color: var(--gold-light); opacity: 0.8; }
+      .topbar a:hover { opacity: 1; }
+      /* ---- NAV ---- */
+      nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(61, 42, 20, 0.07); }
+      .nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 70px; gap: 24px; }
+      .logo { display: flex; align-items: center; gap: 12px; }
+      .logo-icon { width: 44px; height: 44px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 22px; color: var(--white); font-weight: 700; }
+      .logo-text { font-family: var(--font-display); font-size: 20px; color: var(--brown); line-height: 1.2; }
+      .logo-text span { display: block; font-size: 11px; font-family: var(--font-body); font-weight: 500; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+      .nav-links { display: flex; list-style: none; gap: 8px; }
+      .nav-links a { font-size: 14px; font-weight: 500; color: var(--brown-mid); padding: 8px 12px; border-radius: var(--radius); transition: background 0.15s, color 0.15s; }
+      .nav-links a:hover { background: var(--gold-light); color: var(--gold-dark); }
+      .nav-cta { background: var(--gold); color: var(--white) !important; border-radius: 24px !important; padding: 8px 20px !important; font-weight: 600 !important; transition: background 0.15s !important; }
+      .nav-cta:hover { background: var(--gold-dark) !important; }
+      /* ---- SECTIONS ---- */
+      section { padding: 80px 5%; }
+      .section-inner { max-width: 900px; margin: 40px auto; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px 32px; }
+      .section-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+      .section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); color: var(--brown); line-height: 1.2; margin-bottom: 16px; }
+      .section-title em { font-style: italic; color: var(--gold-dark); }
+      .divider { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 24px; }
+      /* ---- FOOTER ---- */
+      footer { background: var(--brown); color: var(--white); padding: 60px 5% 24px; }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
+      .footer-brand { margin-bottom: 24px; }
+      .footer-brand .logo { margin-bottom: 12px; }
+      .footer-brand p { color: rgba(255,255,255,0.7); font-size: 14px; }
+      .footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: var(--gold-light); }
+      .footer-col ul { list-style: none; padding: 0; }
+      .footer-col ul li { margin-bottom: 8px; }
+      .footer-col ul a { color: var(--white); opacity: 0.85; font-size: 14px; }
+      .footer-col ul a:hover { opacity: 1; text-decoration: underline; }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.6); }
+      /* ---- ORDER FORM ---- */
+      .order-form label { font-weight: 600; color: var(--brown-mid); display: block; margin-bottom: 6px; margin-top: 18px; }
+      .order-form input, .order-form select, .order-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; margin-bottom: 12px; background: var(--cream); color: var(--text); font-family: var(--font-body); }
+      .order-form .item-row { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr 40px; gap: 10px; align-items: center; margin-bottom: 10px; }
+      .order-form .item-row input, .order-form .item-row select { margin-bottom: 0; }
+      .order-form .add-item-btn { background: var(--gold); color: var(--white); border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+      .order-form .add-item-btn:hover { background: var(--gold-dark); }
+      .order-form .remove-item-btn { background: var(--blush); color: var(--brown-mid); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: 4px; }
+      .order-form .remove-item-btn:hover { background: var(--gold-light); color: var(--gold-dark); }
+      .btn-primary { background: var(--gold); color: var(--white); padding: 14px 32px; border-radius: 28px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; margin-top: 18px; transition: background 0.15s, transform 0.1s; }
+      .btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+      .order-form .item-header { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr 40px; gap: 10px; font-weight: 700; color: var(--muted); margin-bottom: 8px; font-size: 1rem; }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <span>📍 337 Lott Avenue, Bronx, NY &nbsp;·&nbsp; Proudly Serving New York & Tri-State Area</span>
+      <span>
+        <a href="tel:7187660032">📞 (718) 766-0032</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:cake@slicesbysmiledouglas.com">cake@slicesbysmiledouglas.com</a>
+      </span>
+    </div>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">S</div>
+          <div class="logo-text">
+            Slices by Smiles Douglas
+            <span>Custom Cakes · Bronx, NY</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#menu">Our Cakes</a></li>
+          <li><a href="index.html#how">How It Works</a></li>
+          <li><a href="index.html#testimonials">Reviews</a></li>
+          <li><a href="order.html">Wholesale Order</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Order Now</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="section-inner">
+      <h1>Wholesale Order Request</h1>
+      <div class="divider"></div>
+      <form class="order-form" id="orderForm">
+        <label for="company">Business/Company Name*</label>
+        <input type="text" id="company" name="company" required />
+        <label for="contact">Contact Person*</label>
+        <input type="text" id="contact" name="contact" required />
+        <label for="phone">Business Phone Number*</label>
+        <input type="tel" id="phone" name="phone" required />
+        <label for="email">Business Email*</label>
+        <input type="email" id="email" name="email" required />
+        <label for="address">Business Address</label>
+        <input type="text" id="address" name="address" placeholder="Street Address, City, State, ZIP" />
+        <label for="date">Requested Delivery Date</label>
+        <input type="date" id="date" name="date" />
+        <br />
+        <div class="item-header">
+          <span>Product</span>
+          <span>Pack Size</span>
+          <span>Quantity</span>
+          <span>Details/Notes</span>
+          <span></span>
+        </div>
+        <div id="itemsContainer">
+          <div class="item-row">
+            <input type="text" name="item[]" placeholder="Product Name (e.g. Cake Mix)" required />
+            <input type="text" name="size[]" placeholder="Pack Size (e.g. 50lb bag)" required />
+            <input type="number" name="quantity[]" min="1" value="1" required />
+            <input type="text" name="details[]" placeholder="Any details (brand, SKU, etc.)" />
+            <button type="button" class="remove-item-btn" onclick="removeItem(this)">–</button>
+          </div>
+        </div>
+        <button type="button" class="add-item-btn" onclick="addItem()">+</button>
+        <label for="notes">Order Notes</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Special instructions, delivery windows, etc."></textarea>
+        <button type="submit" class="btn-primary">Submit Wholesale Request</button>
+      </form>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">S</div>
+            <div class="logo-text">
+              Slices by Smiles Douglas
+              <span style="color: rgba(255, 255, 255, 0.4)">Custom Cakes · Bronx, NY</span>
+            </div>
+          </a>
+          <p>
+            Bringing smiles to New York since 2000. Handcrafted custom cakes made with love, natural ingredients, and a dedication to quality that never wavers.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#menu">Our Cakes</a></li>
+            <li><a href="index.html#how">How It Works</a></li>
+            <li><a href="index.html#testimonials">Reviews</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Cake Types</h5>
+          <ul>
+            <li><a href="#">Birthday Cakes</a></li>
+            <li><a href="#">Wedding Cakes</a></li>
+            <li><a href="#">Blue Velvet</a></li>
+            <li><a href="#">Cheesecakes</a></li>
+            <li><a href="#">Holiday Cakes</a></li>
+            <li><a href="#">Custom Orders</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="#">337 Lott Avenue, Bronx NY</a></li>
+            <li><a href="tel:7187660032">(718) 766-0032</a></li>
+            <li><a href="mailto:cake@slicesbysmiledouglas.com">Email Us</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2000–2026 Slices by Smiles Douglas. All rights reserved.</span>
+        <span>Crafted with 🍰 in the Bronx, New York</span>
+      </div>
+    </footer>
+    <script>
+      function addItem() {
+        const container = document.getElementById('itemsContainer');
+        const row = document.createElement('div');
+        row.className = 'item-row';
+        row.innerHTML = `
+          <input type="text" name="item[]" placeholder="Product Name (e.g. Cake Mix)" required />
+          <input type="text" name="size[]" placeholder="Pack Size (e.g. 50lb bag)" required />
+          <input type="number" name="quantity[]" min="1" value="1" required />
+          <input type="text" name="details[]" placeholder="Any details (brand, SKU, etc.)" />
+          <button type="button" class="remove-item-btn" onclick="removeItem(this)">–</button>
+        `;
+        container.appendChild(row);
+      }
+      function removeItem(btn) {
+        const row = btn.parentElement;
+        row.parentElement.removeChild(row);
+      }
+      document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your wholesale request! Our team will contact you soon with pricing and delivery details.');
+        this.reset();
+        document.getElementById('itemsContainer').innerHTML = `
+          <div class="item-row">
+            <input type="text" name="item[]" placeholder="Product Name (e.g. Cake Mix)" required />
+            <input type="text" name="size[]" placeholder="Pack Size (e.g. 50lb bag)" required />
+            <input type="number" name="quantity[]" min="1" value="1" required />
+            <input type="text" name="details[]" placeholder="Any details (brand, SKU, etc.)" />
+            <button type="button" class="remove-item-btn" onclick="removeItem(this)">–</button>
+          </div>
+        `;
+      });
+    </script>
+  </body>
+</html>
