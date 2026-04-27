@@ -1184,27 +1184,9 @@
         <div class="menu-grid">
           <div class="menu-card">
             <div class="menu-img" style="height:240px;padding:0;overflow:hidden;background:#f5e0d8;display:flex;align-items:center;justify-content:center;">
-              <img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;cursor:pointer;" loading="lazy" onclick="openCakeModal()" />
+              <img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;" loading="lazy" />
             </div>
-                <!-- Full View Modal -->
-                <div id="cakeModal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
-                  <span onclick="closeCakeModal()" style="position:absolute;top:32px;right:48px;font-size:44px;color:#fff;cursor:pointer;font-family:sans-serif;z-index:10001;">&times;</span>
-                  <img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake Full View" style="max-width:90vw;max-height:80vh;box-shadow:0 8px 40px #0007;border-radius:18px;display:block;margin:auto;z-index:10000;" />
-                </div>
-                <script>
-                  function openCakeModal() {
-                    document.getElementById('cakeModal').style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                  }
-                  function closeCakeModal() {
-                    document.getElementById('cakeModal').style.display = 'none';
-                    document.body.style.overflow = '';
-                  }
-                  // Optional: Close modal on ESC key
-                  document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape') closeCakeModal();
-                  });
-                </script>
+
             </div>
             <div class="menu-body">
               <h4>Blue Velvet Birthday Cake</h4>
