@@ -74,7 +74,7 @@
 
       /* ---- NAV ---- */
       nav {
-        background: var(--white);
+        background: var(--brown);
         border-bottom: 1px solid var(--border);
         position: sticky;
         top: 0;
@@ -88,7 +88,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 5%;
-        height: 70px;
+        height: 96px;
         gap: 24px;
       }
       .logo {
@@ -97,22 +97,20 @@
         gap: 12px;
       }
       .logo-icon {
-        width: 44px;
-        height: 44px;
-        background: var(--gold);
-        border-radius: 50%;
+        width: 300px;
+        height: 300px;
+        background: url('cake_pictures/douglas_cake-new.png') center/contain no-repeat;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: var(--font-display);
-        font-size: 22px;
-        color: var(--white);
-        font-weight: 700;
+        font-size: 0;
+        color: transparent;
       }
       .logo-text {
         font-family: var(--font-display);
         font-size: 20px;
-        color: var(--brown);
+        color: var(--gold-light);
         line-height: 1.2;
       }
       .logo-text span {
@@ -120,7 +118,7 @@
         font-size: 11px;
         font-family: var(--font-body);
         font-weight: 500;
-        color: var(--muted);
+        color: rgba(255, 255, 255, 0.75);
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
@@ -132,7 +130,7 @@
       .nav-links a {
         font-size: 14px;
         font-weight: 500;
-        color: var(--brown-mid);
+        color: var(--gold-light);
         padding: 8px 12px;
         border-radius: var(--radius);
         transition:
@@ -140,8 +138,8 @@
           color 0.15s;
       }
       .nav-links a:hover {
-        background: var(--gold-light);
-        color: var(--gold-dark);
+        background: rgba(245, 230, 200, 0.2);
+        color: var(--white);
       }
       .nav-cta {
         background: var(--gold);
@@ -888,6 +886,21 @@
         }
       }
       @media (max-width: 560px) {
+        .nav-inner {
+          height: 80px;
+          gap: 12px;
+        }
+        .logo-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 8px;
+        }
+        .logo-text {
+          font-size: 16px;
+        }
+        .logo-text span {
+          font-size: 9px;
+        }
         .nav-links {
           display: none;
         }
@@ -911,7 +924,7 @@
   </head>
   <body>
     <!-- TOP BAR -->
-    <div class="topbar">
+    <!-- <div class="topbar">
       <span
         >📍 337 Lott Avenue, Bronx, NY &nbsp;·&nbsp; Proudly Serving New York &
         Tri-State Area</span
@@ -923,21 +936,22 @@
           >cake@slicesbysmiledouglas.com</a
         >
       </span>
-    </div>
+    </div> -->
 
     <!-- NAV -->
     <nav>
       <div class="nav-inner">
         <a href="#" class="logo">
           <div class="logo-icon">S</div>
-          <div class="logo-text">
+          <!-- <div class="logo-text">
             Slices by Smiles Douglas
             <span>Custom Cakes · Bronx, NY</span>
-          </div>
+          </div> -->
         </a>
         <ul class="nav-links">
           <li><a href="about.html">About</a></li>
           <li><a href="#menu">Our Cakes</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="#how">How It Works</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="order.html">Wholesale Order</a></li>
