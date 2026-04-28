@@ -77,6 +77,17 @@
       .footer-col ul a { color: var(--white); opacity: 0.85; font-size: 14px; }
       .footer-col ul a:hover { opacity: 1; text-decoration: underline; }
       .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.6); }
+      /* ---- WHOLESALE CAKE LIST ---- */
+      .cake-list-section { max-width: 900px; margin: 40px auto 0; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px 32px; }
+      .cake-list-section h2 { font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px); color: var(--brown); margin-bottom: 8px; }
+      .cake-list-section .section-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+      .cake-list-section p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+      .cake-list-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; list-style: none; padding: 0; }
+      .cake-list-grid li { display: flex; align-items: center; gap: 10px; padding: 9px 14px; background: var(--cream); border-radius: var(--radius); font-size: 14px; color: var(--brown-mid); font-weight: 500; border: 1px solid var(--border); }
+      .cake-list-grid li .cake-dot { width: 10px; height: 10px; min-width: 10px; background: var(--gold); border-radius: 50%; }
+      .cake-list-grid li em { font-style: normal; font-size: 12px; color: var(--muted); margin-left: 4px; }
+      @media (max-width: 700px) { .cake-list-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 460px) { .cake-list-grid { grid-template-columns: 1fr; } }
       /* ---- ORDER FORM ---- */
       .order-form label { font-weight: 600; color: var(--brown-mid); display: block; margin-bottom: 6px; margin-top: 18px; }
       .order-form input, .order-form select, .order-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; margin-bottom: 12px; background: var(--cream); color: var(--text); font-family: var(--font-body); }
@@ -122,6 +133,38 @@
         </ul>
       </div>
     </nav>
+    <!-- WHOLESALE CAKE LIST -->
+    <div class="cake-list-section">
+      <div class="section-tag">Available for Wholesale</div>
+      <div class="divider"></div>
+      <h2>Our Wholesale Cake Menu</h2>
+      <p>All cakes are available for wholesale orders. Select from our full lineup below — then use the order form to place your request.</p>
+      <ul class="cake-list-grid">
+        <li><span class="cake-dot"></span>Carrot Cake <em>(with nuts)</em></li>
+        <li><span class="cake-dot"></span>Coconut Layer Cake</li>
+        <li><span class="cake-dot"></span>Rick Banks Cake</li>
+        <li><span class="cake-dot"></span>Red Velvet Cake</li>
+        <li><span class="cake-dot"></span>Strawberry Short Cake</li>
+        <li><span class="cake-dot"></span>Black-Wine Cake</li>
+        <li><span class="cake-dot"></span>Assorted Vegan / Gluten-Free Cake</li>
+        <li><span class="cake-dot"></span>Vanilla Butter Cream Cake</li>
+        <li><span class="cake-dot"></span>Chocolate Fudge Cake</li>
+        <li><span class="cake-dot"></span>Lemon Coconut Cake</li>
+        <li><span class="cake-dot"></span>Banana Strawberry Cake</li>
+        <li><span class="cake-dot"></span>German Chocolate Cake</li>
+        <li><span class="cake-dot"></span>Blue Velvet Cake</li>
+        <li><span class="cake-dot"></span>Strawberry Cheesecake</li>
+        <li><span class="cake-dot"></span>Tres Leches Cake</li>
+        <li><span class="cake-dot"></span>Vanilla Cream Cake</li>
+        <li><span class="cake-dot"></span>Raspberry Cake</li>
+        <li><span class="cake-dot"></span>Carrot Cake</li>
+        <li><span class="cake-dot"></span>Funfetti Cake</li>
+        <li><span class="cake-dot"></span>Strawberry Crunch Cake</li>
+        <li><span class="cake-dot"></span>Triple Mousse Cake</li>
+        <li><span class="cake-dot"></span>Chocolate Mousse Cake</li>
+      </ul>
+    </div>
+
     <div class="section-inner">
       <h1>Wholesale Order Request</h1>
       <div class="divider"></div>
