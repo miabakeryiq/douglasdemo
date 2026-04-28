@@ -20,7 +20,7 @@
       .topbar a:hover { opacity: 1; }
       /* ---- NAV ---- */
       nav { background: var(--brown); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(61, 42, 20, 0.07); }
-      .nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 96px; gap: 24px; }
+      .nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 5%; height: 96px; gap: 24px; }
       .logo { display: flex; align-items: center; gap: 12px; }
       .logo-icon { width: 84px; height: 84px; background: url('cake_pictures/douglas_cake-new.png') center/contain no-repeat; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0; color: transparent; }
       .logo-text { font-family: var(--font-display); font-size: 20px; color: var(--gold-light); line-height: 1.2; }
@@ -40,14 +40,14 @@
         margin-left: 10px;
         z-index: 101;
       }
-      @media (max-width: 560px) {
+      @media (max-width: 768px) {
         .nav-inner {
-          height: 80px;
+          height: 88px;
           gap: 12px;
         }
         .logo-icon {
-          width: 60px;
-          height: 60px;
+          width: 72px;
+          height: 72px;
           border-radius: 8px;
         }
         .logo-text {
@@ -59,7 +59,7 @@
         .nav-links {
           display: none;
           position: absolute;
-          top: 80px;
+          top: 88px;
           right: 0;
           background: var(--brown);
           flex-direction: column;
@@ -74,6 +74,19 @@
         .nav-toggle {
           display: block;
         }
+      }
+      @media (max-width: 900px) {
+        .about-grid { grid-template-columns: 1fr; gap: 36px; }
+        .about-img-box { height: 280px; font-size: 90px; }
+        .about-badge { right: 10px; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 560px) {
+        .topbar { justify-content: center; text-align: center; gap: 6px; font-size: 12px; }
+        section { padding: 56px 5%; }
+        .about-img-box { height: 220px; font-size: 72px; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
       }
       /* ---- SECTIONS ---- */
       section { padding: 80px 5%; }
@@ -105,12 +118,40 @@
       .footer-col ul a { color: var(--white); opacity: 0.85; font-size: 14px; }
       .footer-col ul a:hover { opacity: 1; text-decoration: underline; }
       .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.6); }
+
+      /* ---- FINAL RESPONSIVE OVERRIDES ---- */
+      @media (max-width: 900px) {
+        .about-grid { grid-template-columns: 1fr; gap: 34px; }
+        .about-img-box { height: 260px; font-size: 86px; }
+        .about-badge { right: 10px; }
+        .footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 768px) {
+        .nav-inner { height: 90px; }
+        .logo-icon { width: 74px; height: 74px; }
+        .nav-links { top: 90px; padding: 10px 0; }
+        .nav-links a { padding: 10px 14px; }
+      }
+      @media (max-width: 560px) {
+        .topbar { justify-content: center; text-align: center; gap: 6px; font-size: 12px; }
+        nav .logo-text { display: none; }
+        .nav-inner { height: 92px; }
+        .logo-icon { width: 82px; height: 82px; }
+        .nav-links { top: 92px; }
+        section { padding: 44px 5%; }
+        .about-img-box { height: 210px; font-size: 66px; border-radius: 16px; }
+        .about-badge { position: static; margin-top: 12px; display: inline-block; }
+        .section-title { font-size: clamp(24px, 7vw, 32px); }
+        .about-list li { font-size: 14px; line-height: 1.5; }
+        .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+        .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+      }
     </style>
   </head>
   <body>
     <!-- TOP BAR -->
     <div class="topbar">
-      <span>📍 337 Lott Avenue, Bronx, NY &nbsp;·&nbsp; Proudly Serving New York & Tri-State Area</span>
+      <span>📍  BROOKLYN, NY &nbsp;·&nbsp; Proudly Serving New York & Tri-State Area</span>
       <span>
         <a href="tel:7187660032">📞 (718) 766-0032</a>
         &nbsp;·&nbsp;
@@ -124,7 +165,7 @@
           <div class="logo-icon">S</div>
           <div class="logo-text">
             Slices by Smiles Douglas
-            <span>Custom Cakes · Bronx, NY</span>
+            <span>Custom Cakes · BROOKLYN, NY</span>
           </div>
         </a>
         <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
@@ -153,10 +194,10 @@
             <div class="section-tag">Welcome</div>
             <div class="divider"></div>
             <h2 class="section-title">
-              A Bronx <em>Tradition</em> Built on Taste & Love
+              A BROOKLYN <em>Tradition</em> Built on Taste & Love
             </h2>
             <p style="color: var(--muted); font-size: 16px; margin-bottom: 16px">
-              Slices by Smiles Douglas is a renowned custom cake bakery rooted in the Bronx, NY. Founded by Douglas in 2000, we began in Queens where we saw a need and answered it — baking cakes that were so well-received our reputation spread across all five boroughs and beyond.
+              Slices by Smiles Douglas is a renowned custom cake bakery rooted in the BROOKLYN, NY. Founded by Douglas in 2000, we began in Queens where we saw a need and answered it — baking cakes that were so well-received our reputation spread across all five boroughs and beyond.
             </p>
             <p style="color: var(--muted); font-size: 16px; margin-bottom: 24px">
               We are committed to delivering a distinct experience of freshness, quality, and supreme taste in every cake, while promoting healthy eating for a sustainable future. We strive to bring smiles to everyone's faces — and dedicate our time to mentoring youth and building a legacy for our community.
@@ -190,7 +231,7 @@
             <div class="logo-icon">S</div>
             <div class="logo-text">
               Slices by Smiles Douglas
-              <span style="color: rgba(255, 255, 255, 0.4)">Custom Cakes · Bronx, NY</span>
+              <span style="color: rgba(255, 255, 255, 0.4)">Custom Cakes · BROOKLYN, NY</span>
             </div>
           </a>
           <p>
@@ -222,7 +263,7 @@
         <div class="footer-col">
           <h5>Contact</h5>
           <ul>
-            <li><a href="#">337 Lott Avenue, Bronx NY</a></li>
+            <li><a href="#"> BROOKLYN NY</a></li>
             <li><a href="tel:7187660032">(718) 766-0032</a></li>
             <li><a href="mailto:cake@slicesbysmiledouglas.com">Email Us</a></li>
             <li><a href="#">Instagram</a></li>
@@ -232,7 +273,7 @@
       </div>
       <div class="footer-bottom">
         <span>© 2000–2026 Slices by Smiles Douglas. All rights reserved.</span>
-        <span>Crafted with 🍰 in the Bronx, New York</span>
+        <span>Crafted with 🍰 in the BROOKLYN, New York</span>
       </div>
     </footer>
   </body>
