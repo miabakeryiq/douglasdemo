@@ -135,7 +135,9 @@
         color: var(--brown-mid);
         padding: 8px 12px;
         border-radius: var(--radius);
-        transition: background 0.15s, color 0.15s;
+        transition:
+          background 0.15s,
+          color 0.15s;
       }
       .nav-links a:hover {
         background: var(--gold-light);
@@ -151,36 +153,6 @@
       }
       .nav-cta:hover {
         background: var(--gold-dark) !important;
-      }
-      .nav-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 28px;
-        color: var(--brown-mid);
-        cursor: pointer;
-        margin-left: 10px;
-        z-index: 101;
-      }
-      @media (max-width: 560px) {
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 70px;
-          right: 0;
-          background: var(--white);
-          flex-direction: column;
-          width: 100%;
-          box-shadow: 0 8px 24px rgba(61, 42, 20, 0.08);
-          border-bottom-left-radius: var(--radius);
-          border-bottom-right-radius: var(--radius);
-        }
-        .nav-links.open {
-          display: flex;
-        }
-        .nav-toggle {
-          display: block;
-        }
       }
 
       /* ---- HERO ---- */
@@ -567,6 +539,16 @@
         justify-content: center;
         font-size: 72px;
         background: var(--blush);
+        overflow: hidden;
+        padding: 0;
+      }
+      .menu-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 0;
+        max-width: none;
       }
       .menu-body {
         padding: 16px 18px 20px;
@@ -953,7 +935,6 @@
             <span>Custom Cakes · Bronx, NY</span>
           </div>
         </a>
-        <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <ul class="nav-links">
           <li><a href="about.html">About</a></li>
           <li><a href="#menu">Our Cakes</a></li>
@@ -1183,11 +1164,7 @@
         </p>
         <div class="menu-grid">
           <div class="menu-card">
-            <div class="menu-img" style="height:240px;padding:0;overflow:hidden;background:#f5e0d8;display:flex;align-items:center;justify-content:center;">
-              <img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;" loading="lazy" />
-            </div>
-
-            </div>
+            <div class="menu-img"><img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Blue Velvet Birthday Cake</h4>
               <p>
@@ -1198,7 +1175,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img">🍫</div>
+            <div class="menu-img"><img src="cake_pictures/chocolate.png" alt="Chocolate Ganache Cheesecake" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Chocolate Ganache Cheesecake</h4>
               <p>
@@ -1209,7 +1186,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img">🌹</div>
+            <div class="menu-img"><img src="cake_pictures/cake2.png" alt="Elegant Wedding Cake" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Elegant Wedding Cake</h4>
               <p>
@@ -1220,7 +1197,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img">🍓</div>
+            <div class="menu-img"><img src="cake_pictures/cake_3.png" alt="Fresh Fruit Layer Cake" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Fresh Fruit Layer Cake</h4>
               <p>
@@ -1231,7 +1208,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img">🍋</div>
+            <div class="menu-img"><img src="cake_pictures/celebration_cake.png" alt="Lemon Drizzle Celebration" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Lemon Drizzle Celebration</h4>
               <p>
@@ -1242,7 +1219,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img" style="background: var(--gold-light)">🎨</div>
+            <div class="menu-img"><img src="cake_pictures/mocha.png" alt="Fully Custom Design" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Fully Custom Design</h4>
               <p>
@@ -1253,7 +1230,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img">🧁</div>
+            <div class="menu-img"><img src="cake_pictures/frozen.png" alt="Cupcake Towers" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Cupcake Towers</h4>
               <p>
@@ -1264,7 +1241,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <div class="menu-img" style="background: #f5ede0">🎄</div>
+            <div class="menu-img"><img src="cake_pictures/cake2.png" alt="Seasonal Holiday Cakes" loading="lazy" /></div>
             <div class="menu-body">
               <h4>Seasonal Holiday Cakes</h4>
               <p>
