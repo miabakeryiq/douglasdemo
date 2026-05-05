@@ -187,79 +187,47 @@
 
       /* ---- HERO ---- */
       .hero {
-        background: var(--brown);
-        position: relative;
-        overflow: hidden;
-        min-height: 560px;
-        display: flex;
-        align-items: center;
+        background: #000;
+        padding: 80px 5%;
       }
-      .hero-bg {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(120deg, #3d2a14 40%, #6b4c2a 100%);
-        opacity: 0.97;
-      }
-      .hero-pattern {
-        position: absolute;
-        inset: 0;
-        background-image:
-          radial-gradient(
-            circle at 20% 50%,
-            rgba(201, 151, 58, 0.15) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(245, 224, 216, 0.08) 0%,
-            transparent 50%
-          );
+      .hero,
+      .hero * {
+        color: #fff !important;
       }
       .hero-inner {
-        position: relative;
         max-width: 1200px;
         margin: auto;
-        padding: 80px 5%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        width: 100%;
+        text-align: center;
       }
       .hero-tag {
         display: inline-block;
         background: rgba(201, 151, 58, 0.2);
-        border: 1px solid rgba(201, 151, 58, 0.4);
-        color: var(--gold);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         padding: 6px 14px;
         border-radius: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
       }
       .hero h1 {
         font-family: var(--font-display);
-        font-size: clamp(36px, 5vw, 58px);
-        color: var(--white);
-        line-height: 1.15;
-        margin-bottom: 20px;
+        font-size: clamp(32px, 4.5vw, 52px);
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 12px;
       }
       .hero h1 em {
-        color: var(--gold);
+        color: #fff;
         font-style: italic;
       }
       .hero p {
-        font-size: 17px;
-        color: rgba(255, 255, 255, 0.75);
-        margin-bottom: 36px;
-        max-width: 480px;
-      }
-      .hero-btns {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
+        font-size: 16px;
+        color: #fff;
+        margin: 0 auto 40px;
+        max-width: 640px;
       }
       .btn-primary {
         background: var(--gold);
@@ -297,54 +265,57 @@
         border-color: var(--gold);
         background: rgba(201, 151, 58, 0.1);
       }
-      .hero-visual {
+      .specials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px;
+      }
+      .special-item {
+        text-align: center;
+      }
+      .special-item-image {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 16px;
+        border: 4px solid rgba(201, 151, 58, 0.5);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+      }
+      .special-item h3 {
+        font-family: var(--font-display);
+        font-size: 24px;
+        color: #fff !important;
+        margin-bottom: 6px;
+      }
+      .special-item p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.76) !important;
+        margin: 0 auto;
+        max-width: 260px;
+      }
+      .special-item-price {
         display: flex;
         justify-content: center;
-        align-items: center;
-      }
-      .hero-cake-card {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(201, 151, 58, 0.25);
-        border-radius: 20px;
-        padding: 32px;
-        text-align: center;
-        max-width: 320px;
-        backdrop-filter: blur(8px);
-      }
-      .cake-emoji {
-        font-size: 80px;
-        margin-bottom: 16px;
-      }
-      .hero-cake-card h3 {
-        font-family: var(--font-display);
-        color: var(--white);
-        font-size: 22px;
-        margin-bottom: 8px;
-      }
-      .hero-cake-card p {
-        color: rgba(255, 255, 255, 0.6);
+        margin-top: 10px;
         font-size: 14px;
-      }
-      .hero-stats {
-        display: flex;
-        gap: 24px;
-        margin-top: 28px;
-        flex-wrap: wrap;
-      }
-      .hero-stat {
-        text-align: left;
-      }
-      .hero-stat .num {
-        font-family: var(--font-display);
-        font-size: 28px;
-        color: var(--gold);
         font-weight: 700;
+        color: var(--gold);
       }
-      .hero-stat .label {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.55);
-        font-weight: 500;
-        letter-spacing: 0.05em;
+      @media (max-width: 900px) {
+        .specials-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 22px;
+        }
+      }
+      @media (max-width: 560px) {
+        .specials-grid {
+          grid-template-columns: 1fr;
+        }
+        .special-item-image {
+          width: 200px;
+          height: 200px;
+        }
       }
 
       /* ---- MARQUEE ---- */
@@ -606,11 +577,41 @@
       }
 
       /* ---- FEATURED / MENU ---- */
+      .menu-category-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 26px;
+        flex-wrap: wrap;
+      }
+      .menu-category-btn {
+        border: 1px solid var(--border);
+        background: #fff;
+        color: #000 !important;
+        border-radius: 22px;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+      }
+      .menu-category-btn:hover {
+        border-color: var(--gold-dark);
+      }
+      .menu-category-btn.active {
+        background: #000;
+        color: #fff !important;
+        border-color: #000;
+      }
       .menu-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 24px;
         margin-bottom: 40px;
+      }
+      .menu-card.is-hidden {
+        display: none;
       }
       .menu-card {
         background: var(--white);
@@ -1153,12 +1154,6 @@
 
       /* ---- RESPONSIVE ---- */
       @media (max-width: 900px) {
-        .hero-inner {
-          grid-template-columns: 1fr;
-        }
-        .hero-visual {
-          display: none;
-        }
         .about-grid {
           grid-template-columns: 1fr;
         }
@@ -1234,6 +1229,17 @@
         .menu-grid {
           grid-template-columns: 1fr;
         }
+        .menu-img {
+          height: 220px;
+          background: #fff;
+          padding: 12px;
+        }
+        .menu-img img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
         .steps-grid {
           grid-template-columns: 1fr;
         }
@@ -1281,8 +1287,8 @@
         <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <ul class="nav-links">
           <li><a href="about.html">About</a></li>
-          <li><a href="#menu">Our Cakes</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="gallery.html">Custom Cake Gallery</a></li>
           <li><a href="#how">How It Works</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="order.html">Wholesale Order</a></li>
@@ -1318,7 +1324,7 @@
             <!-- <div class="service-icon">🎄</div> -->
             <h3>Catering</h3>
             <p>From Christmas to cultural celebrations, we bake cakes that honor tradition.</p>
-            <a href="#contact" class="service-card-btn">Order Now</a>
+            <a href="#contact" class="service-card-btn">Schedule an Order</a>
           </div>
         </div>
 
@@ -1327,13 +1333,13 @@
             <!-- <div class="service-icon">🍫</div> -->
             <h3>Wholesale</h3>
             <p>Blue Velvet, Chocolate Ganache Cheesecake &amp; more signature favorites.</p>
-            <a href="#menu" class="service-card-btn">Explore Flavors</a>
+            <a href="order.html" class="service-card-btn">Make an Order</a>
           </div>
         </div>
 
         <div class="service-card" style="background-image: url('cake_pictures/heart_cake.jpg')">
           <div class="service-card-content">
-            <div class="service-icon">🎓</div>
+            <!-- <div class="service-icon">🎓</div> -->
             <h3>Customer Reviews</h3>
             <p>Graduations, baby showers, anniversaries — every milestone deserves a cake.</p>
             <a href="#contact" class="service-card-btn">Plan Your Event</a>
@@ -1342,7 +1348,7 @@
 
         <div class="service-card" style="background-image: url('cake_pictures/cake2.png')">
           <div class="service-card-content">
-            <div class="service-icon">🚚</div>
+            <!-- <div class="service-icon">🚚</div> -->
             <h3>Delivery & Pickup</h3>
             <p>Pickup in Brooklyn or delivery across New York & the Tri-State area.</p>
             <a href="#contact" class="service-card-btn">Get a Quote</a>
@@ -1381,7 +1387,7 @@
       <div class="section-inner">
         <div class="about-grid">
           <div class="about-visual">
-            <div class="about-img-box">🍰</div>
+            <!-- <div class="about-img-box">🍰</div> -->
             <div class="about-badge">
               <span class="num">25+</span>
               <span class="label">Years of Smiles</span>
@@ -1438,52 +1444,50 @@
       </div>
     </section>
 
-     <!-- HERO -->
+     <!-- SPECIALS -->
     <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-pattern"></div>
       <div class="hero-inner">
-        <div>
-          <div class="hero-tag">✦ Est. 2000 · BROOKLYN, New York</div>
-          <h1>Custom Cakes That <em>Bring Smiles</em> to Every Occasion</h1>
-          <p>
-            Renowned BROOKLYN bakery specializing in handcrafted custom cakes for
-            birthdays, weddings, holidays, and every celebration in between.
-            Quality, freshness, and joy in every slice.
-          </p>
-          <div class="hero-btns">
-            <a href="#menu" class="btn-primary">Explore Our Cakes</a>
-            <a href="#contact" class="btn-outline">Get a Quote</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="num">25+</div>
-              <div class="label">Years Baking</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">1000s</div>
-              <div class="label">Happy Customers</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">100%</div>
-              <div class="label">Natural Ingredients</div>
-            </div>
-          </div>
+        <!-- <div class="hero-tag">✦ Featured This Week</div> -->
+        <h1 style="color: white;">Slices by Smile Douglas <em><br>Specials</em></h1>
+        <p>
+          Handpicked customer favorites available now. 
+        </p>
+        <div class="specials-grid">
+          <article class="special-item">
+            <img
+              src="cake_pictures/signatures/carrot_cake.jpg"
+              alt="Carrot Cake special"
+              class="special-item-image"
+              loading="lazy" />
+            <h3>Carrot Cake</h3>
+            <p>Moist spiced layers finished with smooth cream cheese frosting.</p>
+            <!-- <span class="special-item-price">Special from $68</span> -->
+          </article>
+          <article class="special-item">
+            <img
+              src="cake_pictures/signatures/cheesecake.jpg"
+              alt="Cheesecake special"
+              class="special-item-image"
+              loading="lazy" />
+            <h3>Cheesecake</h3>
+            <p>Rich, velvety cheesecake with a buttery crust and silky finish.</p>
+            <!-- <span class="special-item-price">Special from $72</span> -->
+          </article>
+          <article class="special-item">
+            <img
+              src="cake_pictures/blackwine.jpg"
+              alt="Black Wine Cake special"
+              class="special-item-image"
+              loading="lazy" />
+            <h3>Black Wine Cake</h3>
+            <p>Bold Caribbean-inspired black cake soaked with deep wine flavor.</p>
+            <!-- <span class="special-item-price">Special from $85</span> -->
+          </article>
         </div>
-        <div class="hero-visual">
-          <div class="hero-cake-card">
-            <div class="cake-emoji"></div>
-            <h3>Signature Custom Cakes</h3>
-            <p>Handcrafted with love for your most special moments</p>
-            <br />
-            <a
-              href="#menu"
-              class="btn-primary"
-              style="font-size: 14px; padding: 10px 24px"
-              >View Menu</a
-            >
+        <div style="margin-top: 34px">
+          <a href="#menu" class="btn-primary">See Full Menu</a>
+          <a href="#contact" class="btn-outline">Order a Special</a>
           </div>
-        </div>
       </div>
     </section>
 
@@ -1497,99 +1501,179 @@
           Every cake is baked fresh to order using only natural ingredients.
           Browse our most popular creations below.
         </p>
+        <div class="menu-category-selector" aria-label="Menu Categories">
+          <button
+            class="menu-category-btn active"
+            type="button"
+            data-category="slices"
+            onclick="selectMenuCategory('slices')">
+            Cake Slices
+          </button>
+          <button
+            class="menu-category-btn"
+            type="button"
+            data-category="whole"
+            onclick="selectMenuCategory('whole')">
+            Whole Cakes
+          </button>
+        </div>
         <div class="menu-grid">
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/coconut-cake-5.jpg" alt="Coconut Layer Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Blue Velvet Birthday Cake</h4>
-              <p>
-                Our signature creation — a moist, richly flavored blue velvet
-                cake with creamy frosting.
-              </p>
-              <span class="menu-price">Starting at $79</span>
+              <h4>Coconut Layer Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/chocolate.png" alt="Chocolate Ganache Cheesecake" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/cake2.png" alt="Rick Banks Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Chocolate Ganache Cheesecake</h4>
-              <p>
-                Velvety cheesecake draped in a glossy chocolate ganache. A
-                customer all-time favorite.
-              </p>
-              <span class="menu-price">Starting at $89</span>
+              <h4>Rick Banks Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/cake2.png" alt="Elegant Wedding Cake" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/red_velvet.jpg" alt="Red Velvet Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Elegant Wedding Cake</h4>
-              <p>
-                Tiered masterpieces designed for your most important day. Fully
-                customizable in any flavor.
-              </p>
-              <span class="menu-price">Starting at $199</span>
+              <h4>Red Velvet Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/cake_3.png" alt="Fresh Fruit Layer Cake" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/strawberry.jpg" alt="Strawberry Short Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Fresh Fruit Layer Cake</h4>
-              <p>
-                Light, airy layers with fresh seasonal fruits and lightly
-                sweetened cream — pure natural delight.
-              </p>
-              <span class="menu-price">Starting at $69</span>
+              <h4>Strawberry Short Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/celebration_cake.png" alt="Lemon Drizzle Celebration" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/vegan-tres-leches-cake-1.jpg" alt="Assorted Vegan Gluten-Free Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Lemon Drizzle Celebration</h4>
-              <p>
-                Bright, zesty, and utterly refreshing. Perfect for spring and
-                summer celebrations.
-              </p>
-              <span class="menu-price">Starting at $65</span>
+              <h4>Assorted Vegan / Gluten-Free Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/mocha.png" alt="Fully Custom Design" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/vanilla_cake.png" alt="Vanilla Butter Cream Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Fully Custom Design</h4>
-              <p>
-                Your vision, our craftsmanship. Any theme, any flavor, any size.
-                Contact us to discuss.
-              </p>
-              <span class="menu-price">Get a Quote</span>
+              <h4>Vanilla Butter Cream Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/frozen.png" alt="Cupcake Towers" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/chocfudge.jpg" alt="Chocolate Fudge Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Cupcake Towers</h4>
-              <p>
-                A crowd-pleasing alternative — beautifully decorated cupcakes
-                arranged in a stunning display.
-              </p>
-              <span class="menu-price">Starting at $45</span>
+              <h4>Chocolate Fudge Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
-          <div class="menu-card">
-            <div class="menu-img"><img src="cake_pictures/cake2.png" alt="Seasonal Holiday Cakes" loading="lazy" /></div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/lemon_coconut.jpg" alt="Lemon Coconut Cake" loading="lazy" /></div>
             <div class="menu-body">
-              <h4>Seasonal Holiday Cakes</h4>
-              <p>
-                Festive limited-edition cakes crafted for Christmas,
-                Thanksgiving, and cultural celebrations.
-              </p>
-              <span class="menu-price">Starting at $75</span>
+              <h4>Lemon Coconut Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/banana_strawberry.jpg" alt="Banana Strawberry Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Banana Strawberry Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/german_choc.jpg" alt="German Chocolate Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>German Chocolate Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/blue_velvet-removebg-preview.png" alt="Blue Velvet Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Blue Velvet Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/cheesecake.png" alt="Strawberry Cheesecake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Strawberry Cheesecake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/vegan-tres-leches-cake-1.jpg" alt="Tres Leches Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Tres Leches Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/vanilla_cream_cake.jpg" alt="Vanilla Cream Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Vanilla Cream Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/strawberry.png" alt="Raspberry Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Raspberry Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/funfetti.webp" alt="Funfetti Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Funfetti Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/strawberrycrunch.png" alt="Strawberry Crunch Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Strawberry Crunch Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/chocolate.png" alt="Triple Mousse Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Triple Mousse Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
+            </div>
+          </div>
+          <div class="menu-card" data-menu-category="both">
+            <div class="menu-img"><img src="cake_pictures/chocolate.png" alt="Chocolate Mousse Cake" loading="lazy" /></div>
+            <div class="menu-body">
+              <h4>Chocolate Mousse Cake</h4>
+              <p>Available in both whole cakes and cake slices.</p>
+              <span class="menu-price">Whole & Slices</span>
             </div>
           </div>
         </div>
-        <div style="text-align: center">
+        <!-- <div style="text-align: center">
           <a href="#contact" class="btn-primary">Order a Custom Cake</a>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -1879,7 +1963,7 @@
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="#menu">Our Cakes</a></li>
+            <li><a href="#menu">Menu</a></li>
             <li><a href="#how">How It Works</a></li>
             <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1940,6 +2024,22 @@
     </div>
 
     <script>
+      function selectMenuCategory(category) {
+        var categoryButtons = document.querySelectorAll('.menu-category-btn');
+        var menuCards = document.querySelectorAll('.menu-card[data-menu-category]');
+
+        categoryButtons.forEach(function(button) {
+          var isActive = button.getAttribute('data-category') === category;
+          button.classList.toggle('active', isActive);
+        });
+
+        menuCards.forEach(function(card) {
+          var cardCategory = card.getAttribute('data-menu-category');
+          var shouldShow = cardCategory === category || cardCategory === 'both';
+          card.classList.toggle('is-hidden', !shouldShow);
+        });
+      }
+
       function openOrderModal(e) {
         if (e) e.preventDefault();
         document.getElementById('orderModal').classList.add('open');
@@ -1976,6 +2076,8 @@
           markOrderModalAutoShown();
         }, 9000);
       }
+
+      selectMenuCategory('slices');
     </script>
   </body>
 </html>
