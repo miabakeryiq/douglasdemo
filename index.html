@@ -1021,6 +1021,65 @@
         height: 1px;
         background: #e5e5e5;
       }
+      @media (max-width: 600px) {
+        .order-modal-overlay {
+          padding: 12px;
+          align-items: flex-end;
+        }
+        .order-modal {
+          width: 100%;
+          max-width: 100%;
+          max-height: calc(100dvh - 24px);
+          overflow-y: auto;
+          border-radius: 18px;
+          padding: 24px 18px 18px;
+          text-align: left;
+          -webkit-overflow-scrolling: touch;
+        }
+        .order-modal-close {
+          top: 10px;
+          right: 10px;
+          min-width: 40px;
+          min-height: 40px;
+          font-size: 28px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .order-modal-icon {
+          font-size: 38px;
+          margin-bottom: 8px;
+        }
+        .order-modal h2 {
+          font-size: 22px;
+          margin-bottom: 8px;
+          padding-right: 40px;
+        }
+        .order-modal p {
+          font-size: 13px;
+          line-height: 1.55;
+          margin-bottom: 18px;
+        }
+        .order-modal-options {
+          gap: 10px;
+        }
+        .order-platform-btn {
+          padding: 14px 14px;
+          gap: 12px;
+          border-radius: 12px;
+        }
+        .order-platform-btn .platform-logo {
+          width: 40px;
+          height: 40px;
+          font-size: 22px;
+        }
+        .order-platform-btn .platform-name {
+          font-size: 15px;
+        }
+        .order-platform-btn .platform-sub {
+          font-size: 11px;
+        }
+      }
 
       /* ---- FOOTER ---- */
       footer {
@@ -1893,10 +1952,30 @@
       function closeOrderModalOnOverlay(e) {
         if (e.target === document.getElementById('orderModal')) closeOrderModal();
       }
+      function shouldAutoOpenOrderModal() {
+        var isMobile = window.matchMedia('(max-width: 600px)').matches;
+        if (!isMobile) return false;
+        try {
+          return sessionStorage.getItem('orderModalAutoShown') !== '1';
+        } catch (error) {
+          return true;
+        }
+      }
+      function markOrderModalAutoShown() {
+        try {
+          sessionStorage.setItem('orderModalAutoShown', '1');
+        } catch (error) {
+        }
+      }
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeOrderModal();
       });
-        setTimeout(openOrderModal, 9000);
+      if (shouldAutoOpenOrderModal()) {
+        setTimeout(function() {
+          openOrderModal();
+          markOrderModalAutoShown();
+        }, 9000);
+      }
     </script>
   </body>
 </html>
