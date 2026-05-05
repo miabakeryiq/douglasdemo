@@ -1,0 +1,117 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --gold: #c9973a; --gold-light: #f5e6c8; --gold-dark: #8a6220; --cream: #fbf7f0; --brown: #3d2a14; --brown-mid: #6b4c2a; --blush: #f5e0d8; --white: #ffffff; --text: #2a1a0a; --muted: #7a6050; --border: rgba(180, 140, 80, 0.2); --font-display: "Playfair Display", Georgia, serif; --font-body: "DM Sans", sans-serif; --radius: 8px; --shadow: 0 4px 24px rgba(61, 42, 20, 0.1); }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--cream); color: var(--text); line-height: 1.7; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+/* ---- TOP BAR ---- */
+.topbar { background: var(--brown); color: var(--gold-light); font-size: 13px; display: flex; justify-content: space-between; align-items: center; padding: 8px 5%; gap: 12px; flex-wrap: wrap; }
+.topbar a { color: var(--gold-light); opacity: 0.8; }
+.topbar a:hover { opacity: 1; }
+/* ---- NAV ---- */
+nav { background: #000; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(61, 42, 20, 0.07); }
+.nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 5%; height: 96px; gap: 24px; overflow: visible; }
+.logo { display: flex; align-items: center; gap: 12px; }
+nav .logo { position: absolute; left: 50%; transform: translateX(-50%); }
+.logo-icon { width: 96px; height: 96px; background: url('cake_pictures/douglas_cake-new.png') center/contain no-repeat; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0; color: transparent; }
+.logo-text { font-family: var(--font-display); font-size: 20px; color: var(--gold-light); line-height: 1.2; }
+.logo-text span { display: block; font-size: 11px; font-family: var(--font-body); font-weight: 500; color: rgba(255,255,255,0.75); letter-spacing: 0.12em; text-transform: uppercase; }
+.nav-links { display: none; list-style: none; position: absolute; top: 96px; right: 0; left: 0; background: #000; flex-direction: column; width: 100%; box-shadow: 0 8px 24px rgba(61, 42, 20, 0.12); border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius); padding: 10px 0; z-index: 102; }
+.nav-links.open { display: flex; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--gold-light); padding: 10px 14px; border-radius: var(--radius); transition: background 0.15s, color 0.15s; }
+.nav-links a:hover { background: rgba(245,230,200,0.2); color: var(--white); }
+.nav-cta { background: var(--gold); color: var(--white) !important; border-radius: 24px !important; padding: 8px 20px !important; font-weight: 600 !important; transition: background 0.15s !important; }
+.nav-cta:hover { background: var(--gold-dark) !important; }
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--gold-light);
+  cursor: pointer;
+  margin-left: auto;
+  z-index: 101;
+}
+@media (max-width: 768px) {
+  .nav-inner {
+    height: 88px;
+    gap: 12px;
+  }
+  .logo-icon {
+    width: 82px;
+    height: 82px;
+    border-radius: 8px;
+  }
+  .logo-text {
+    font-size: 16px;
+  }
+  .logo-text span {
+    font-size: 9px;
+  }
+  .nav-links {
+    top: 88px;
+    box-shadow: 0 8px 24px rgba(61, 42, 20, 0.08);
+  }
+}
+/* ---- SECTIONS ---- */
+section { padding: 80px 5%; }
+.section-inner { max-width: 900px; margin: 40px auto; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px 32px; }
+.section-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); color: var(--brown); line-height: 1.2; margin-bottom: 16px; }
+.section-title em { font-style: italic; color: var(--gold-dark); }
+.divider { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 24px; }
+/* ---- FOOTER ---- */
+footer { background: var(--brown); color: var(--white); padding: 60px 5% 24px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
+.footer-brand { margin-bottom: 24px; }
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { color: rgba(255,255,255,0.7); font-size: 14px; }
+.footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: var(--gold-light); }
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul a { color: var(--white); opacity: 0.85; font-size: 14px; }
+.footer-col ul a:hover { opacity: 1; text-decoration: underline; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.6); }
+nav .nav-toggle,
+nav .nav-links a,
+nav .nav-cta,
+nav .logo-text,
+nav .logo-text span { color: #fff !important; }
+/* ---- WHOLESALE CAKE LIST ---- */
+.cake-list-section { max-width: 900px; margin: 40px auto 0; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px 32px; }
+.cake-list-section h2 { font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px); color: var(--brown); margin-bottom: 8px; }
+.cake-list-section .section-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.cake-list-section p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+.cake-list-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; list-style: none; padding: 0; }
+.cake-list-grid li { display: flex; align-items: center; gap: 10px; padding: 9px 14px; background: var(--cream); border-radius: var(--radius); font-size: 14px; color: var(--brown-mid); font-weight: 500; border: 1px solid var(--border); }
+.cake-list-grid li .cake-dot { width: 10px; height: 10px; min-width: 10px; background: var(--gold); border-radius: 50%; }
+.cake-list-grid li em { font-style: normal; font-size: 12px; color: var(--muted); margin-left: 4px; }
+@media (max-width: 700px) { .cake-list-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 460px) { .cake-list-grid { grid-template-columns: 1fr; } }
+/* ---- ORDER FORM ---- */
+.order-form label { font-weight: 600; color: var(--brown-mid); display: block; margin-bottom: 6px; margin-top: 18px; }
+.order-form input, .order-form select, .order-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; margin-bottom: 12px; background: var(--cream); color: var(--text); font-family: var(--font-body); }
+.order-form .item-row { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr 40px; gap: 10px; align-items: center; margin-bottom: 10px; }
+.order-form .item-row input, .order-form .item-row select { margin-bottom: 0; }
+.order-form .add-item-btn { background: var(--gold); color: var(--white); border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+.order-form .add-item-btn:hover { background: var(--gold-dark); }
+.order-form .remove-item-btn { background: var(--blush); color: var(--brown-mid); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: 4px; }
+.order-form .remove-item-btn:hover { background: var(--gold-light); color: var(--gold-dark); }
+.btn-primary { background: var(--gold); color: var(--white); padding: 14px 32px; border-radius: 28px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; margin-top: 18px; transition: background 0.15s, transform 0.1s; }
+.btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+.order-form .item-header { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr 40px; gap: 10px; font-weight: 700; color: var(--muted); margin-bottom: 8px; font-size: 1rem; }
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .topbar { justify-content: center; text-align: center; gap: 6px; font-size: 12px; }
+  .section-inner,
+  .cake-list-section { padding: 24px 18px; margin: 24px auto; }
+  .order-form .item-header { display: none; }
+  .order-form .item-row { grid-template-columns: 1fr; gap: 8px; border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; background: #fff; }
+  .order-form .remove-item-btn { margin-left: 0; justify-self: end; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

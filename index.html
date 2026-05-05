@@ -7,6 +7,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
+    <link rel="stylesheet" href="order.css" />
     <style>
       *,
       *::before,
@@ -74,7 +75,7 @@
 
       /* ---- NAV ---- */
       nav {
-        background: var(--brown);
+        background: #000;
         border-bottom: 1px solid var(--border);
         position: sticky;
         top: 0;
@@ -89,7 +90,7 @@
         justify-content: space-between;
         position: relative;
         padding: 0 5%;
-        height: 96px;
+        height: 180px;
         gap: 24px;
         overflow: visible;
       }
@@ -98,10 +99,15 @@
         align-items: center;
         gap: 12px;
       }
+      nav .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
       .logo-icon {
-        width: 84px;
-        height: 84px;
-        background: url('cake_pictures/douglas_cake-new.png') center/contain no-repeat;
+        width: 320px;
+        height: 320px;
+        background: url('cake_pictures/logo.png') center/contain no-repeat;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -110,13 +116,13 @@
         color: transparent;
       }
       .nav-toggle {
-        display: none;
+        display: block;
         background: none;
         border: none;
         font-size: 30px;
         color: var(--gold-light);
         cursor: pointer;
-        margin-left: 10px;
+        margin-left: auto;
         z-index: 101;
       }
       .logo-text {
@@ -135,15 +141,29 @@
         text-transform: uppercase;
       }
       .nav-links {
-        display: flex;
+        display: none;
         list-style: none;
-        gap: 8px;
+        position: absolute;
+        top: 180px;
+        right: 0;
+        left: 0;
+        background: #000;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 8px 24px rgba(61, 42, 20, 0.12);
+        border-bottom-left-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+        padding: 10px 0;
+        z-index: 102;
+      }
+      .nav-links.open {
+        display: flex;
       }
       .nav-links a {
         font-size: 14px;
         font-weight: 500;
         color: var(--gold-light);
-        padding: 8px 12px;
+        padding: 10px 14px;
         border-radius: var(--radius);
         transition:
           background 0.15s,
@@ -476,49 +496,113 @@
 
       /* ---- SERVICES ---- */
       .services-bg {
-        background: var(--brown);
+        background: #111;
+        padding: 0 !important;
       }
       .services-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 0;
       }
       .service-card {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(201, 151, 58, 0.2);
-        border-radius: 16px;
-        padding: 36px 28px;
-        transition:
-          background 0.2s,
-          border-color 0.2s,
-          transform 0.15s;
-        cursor: default;
+        position: relative;
+        height: 520px;
+        overflow: hidden;
+        border: none;
+        border-radius: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .service-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.28) 60%, rgba(0,0,0,0.18) 100%);
+        transition: background 0.3s;
+        z-index: 1;
+      }
+      .service-card:hover::before {
+        background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.3) 100%);
       }
       .service-card:hover {
-        background: rgba(201, 151, 58, 0.1);
-        border-color: rgba(201, 151, 58, 0.5);
-        transform: translateY(-3px);
+        transform: none;
+      }
+      .service-card:hover .service-card-btn {
+        background: var(--gold-dark);
+        transform: scale(1.05);
+      }
+      .service-card-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 28px;
       }
       .service-icon {
-        font-size: 42px;
-        margin-bottom: 20px;
+        font-size: 44px;
+        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
       }
       .service-card h3 {
         font-family: var(--font-display);
-        font-size: 22px;
-        color: var(--white);
-        margin-bottom: 10px;
+        font-size: 26px;
+        color: #fff !important;
+        margin: 0;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        line-height: 1.2;
       }
       .service-card p {
         font-size: 14px;
-        color: rgba(255, 255, 255, 0.6);
-        line-height: 1.7;
+        color: rgba(255,255,255,0.82) !important;
+        line-height: 1.65;
+        max-width: 260px;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        margin: 0;
+      }
+      .service-card-btn {
+        display: inline-block;
+        background: var(--gold);
+        color: #fff !important;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 11px 28px;
+        border-radius: 28px;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+        margin-top: 4px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.35);
       }
       .services-bg .section-title {
         color: var(--white);
       }
       .services-bg .section-sub {
         color: rgba(255, 255, 255, 0.6);
+      }
+      @media (max-width: 900px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .service-card {
+          height: 420px;
+        }
+      }
+      @media (max-width: 560px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .service-card {
+          height: 340px;
+        }
       }
 
       /* ---- FEATURED / MENU ---- */
@@ -798,6 +882,146 @@
         background: var(--gold-dark);
       }
 
+      /* ---- ORDER POPUP ---- */
+      .order-modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.65);
+        z-index: 9000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        backdrop-filter: blur(4px);
+      }
+      .order-modal-overlay.open {
+        display: flex;
+      }
+      .order-modal {
+        background: #fff;
+        border-radius: 20px;
+        padding: 44px 40px 36px;
+        max-width: 440px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+        text-align: center;
+        animation: modalIn 0.25s ease;
+      }
+      @keyframes modalIn {
+        from { opacity: 0; transform: translateY(24px) scale(0.97); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .order-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #888 !important;
+        cursor: pointer;
+        line-height: 1;
+        padding: 4px 8px;
+        border-radius: 50%;
+        transition: background 0.15s;
+      }
+      .order-modal-close:hover {
+        background: #f2f2f2;
+        color: #333 !important;
+      }
+      .order-modal-icon {
+        font-size: 52px;
+        margin-bottom: 12px;
+      }
+      .order-modal h2 {
+        font-family: var(--font-display);
+        font-size: 26px;
+        color: var(--brown) !important;
+        margin-bottom: 6px;
+      }
+      .order-modal p {
+        font-size: 14px;
+        color: var(--muted) !important;
+        margin-bottom: 28px;
+      }
+      .order-modal-options {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .order-platform-btn {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 22px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: transform 0.15s, box-shadow 0.15s;
+        border: 2px solid transparent;
+      }
+      .order-platform-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(0,0,0,0.14);
+      }
+      .order-platform-btn .platform-logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        flex-shrink: 0;
+      }
+      .order-platform-btn .platform-info {
+        text-align: left;
+      }
+      .order-platform-btn .platform-name {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .order-platform-btn .platform-sub {
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        opacity: 0.75;
+        margin-top: 2px;
+      }
+      .btn-ubereats {
+        background: #000;
+        color: #fff !important;
+      }
+      .btn-ubereats .platform-logo { background: #06c167; }
+      .btn-ubereats .platform-name { color: #fff !important; }
+      .btn-ubereats .platform-sub  { color: rgba(255,255,255,0.7) !important; }
+      .btn-doordash {
+        background: #ff3008;
+        color: #fff !important;
+      }
+      .btn-doordash .platform-logo { background: rgba(255,255,255,0.2); }
+      .btn-doordash .platform-name { color: #fff !important; }
+      .btn-doordash .platform-sub  { color: rgba(255,255,255,0.75) !important; }
+      .order-modal-divider {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 4px 0;
+        color: #bbb !important;
+        font-size: 12px;
+      }
+      .order-modal-divider::before,
+      .order-modal-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #e5e5e5;
+      }
+
       /* ---- FOOTER ---- */
       footer {
         background: #1a0f05;
@@ -857,6 +1081,17 @@
         gap: 10px;
       }
 
+      body * {
+        color: #000 !important;
+      }
+      nav .nav-toggle,
+      nav .nav-links a,
+      nav .nav-cta,
+      nav .logo-text,
+      nav .logo-text span {
+        color: #fff !important;
+      }
+
       /* ---- RESPONSIVE ---- */
       @media (max-width: 900px) {
         .hero-inner {
@@ -874,9 +1109,6 @@
         }
         .about-badge {
           right: 10px;
-        }
-        .services-grid {
-          grid-template-columns: 1fr 1fr;
         }
         .menu-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -909,8 +1141,8 @@
           gap: 12px;
         }
         .logo-icon {
-          width: 72px;
-          height: 72px;
+          width: 82px;
+          height: 82px;
           border-radius: 8px;
         }
         .logo-text {
@@ -925,7 +1157,7 @@
           top: 88px;
           right: 0;
           left: 0;
-          background: var(--brown);
+          background: #000;
           flex-direction: column;
           width: 100%;
           box-shadow: 0 8px 24px rgba(61, 42, 20, 0.12);
@@ -939,12 +1171,6 @@
         }
         .nav-links a {
           padding: 10px 14px;
-        }
-        .nav-toggle {
-          display: block;
-        }
-        .services-grid {
-          grid-template-columns: 1fr;
         }
         .menu-grid {
           grid-template-columns: 1fr;
@@ -961,8 +1187,8 @@
       }
       @media (max-width: 420px) {
         .logo-icon {
-          width: 76px;
-          height: 76px;
+          width: 84px;
+          height: 84px;
         }
       }
     </style>
@@ -1001,59 +1227,73 @@
           <li><a href="#how">How It Works</a></li>
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="order.html">Wholesale Order</a></li>
-          <li><a href="#contact" class="nav-cta">Order Now</a></li>
+          <li><a href="#" class="nav-cta" onclick="openOrderModal(event)">Order Now</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-pattern"></div>
-      <div class="hero-inner">
-        <div>
-          <div class="hero-tag">✦ Est. 2000 · BROOKLYN, New York</div>
-          <h1>Custom Cakes That <em>Bring Smiles</em> to Every Occasion</h1>
-          <p>
-            Renowned BROOKLYN bakery specializing in handcrafted custom cakes for
-            birthdays, weddings, holidays, and every celebration in between.
-            Quality, freshness, and joy in every slice.
-          </p>
-          <div class="hero-btns">
-            <a href="#menu" class="btn-primary">Explore Our Cakes</a>
-            <a href="#contact" class="btn-outline">Get a Quote</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="num">25+</div>
-              <div class="label">Years Baking</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">1000s</div>
-              <div class="label">Happy Customers</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">100%</div>
-              <div class="label">Natural Ingredients</div>
-            </div>
+    <!-- SERVICES -->
+    <section class="services-bg">
+      <div class="services-grid">
+
+        <div class="service-card" style="background-image: url('cake_pictures/signatures/red_velvet.jpg')">
+          <div class="service-card-content">
+            <!-- <div class="service-icon">🎂</div> -->
+            <h3>Our Menu</h3>
+            <p>Explore our full range of handcrafted custom cakes made fresh to order.</p>
+            <a href="#menu" class="service-card-btn">View Menu</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-cake-card">
-            <div class="cake-emoji"></div>
-            <h3>Signature Custom Cakes</h3>
-            <p>Handcrafted with love for your most special moments</p>
-            <br />
-            <a
-              href="#menu"
-              class="btn-primary"
-              style="font-size: 14px; padding: 10px 24px"
-              >View Menu</a
-            >
+
+        <div class="service-card" style="background-image: url('cake_pictures/brooklyn.jpg')">
+          <div class="service-card-content">
+            <!-- <div class="service-icon">💍</div> -->
+            <h3>About Us</h3>
+            <p>25+ years of bringing smiles to Brooklyn and beyond. Learn our story.</p>
+            <a href="about.html" class="service-card-btn">Meet the Baker</a>
           </div>
         </div>
+
+        <div class="service-card" style="background-image: url('cake_pictures/signatures/cupacakes.jpg')">
+          <div class="service-card-content">
+            <!-- <div class="service-icon">🎄</div> -->
+            <h3>Catering</h3>
+            <p>From Christmas to cultural celebrations, we bake cakes that honor tradition.</p>
+            <a href="#contact" class="service-card-btn">Order Now</a>
+          </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('cake_pictures/signatures/wholesale.jpg')">
+          <div class="service-card-content">
+            <!-- <div class="service-icon">🍫</div> -->
+            <h3>Wholesale</h3>
+            <p>Blue Velvet, Chocolate Ganache Cheesecake &amp; more signature favorites.</p>
+            <a href="#menu" class="service-card-btn">Explore Flavors</a>
+          </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('cake_pictures/heart_cake.jpg')">
+          <div class="service-card-content">
+            <div class="service-icon">🎓</div>
+            <h3>Customer Reviews</h3>
+            <p>Graduations, baby showers, anniversaries — every milestone deserves a cake.</p>
+            <a href="#contact" class="service-card-btn">Plan Your Event</a>
+          </div>
+        </div>
+
+        <div class="service-card" style="background-image: url('cake_pictures/cake2.png')">
+          <div class="service-card-content">
+            <div class="service-icon">🚚</div>
+            <h3>Delivery & Pickup</h3>
+            <p>Pickup in Brooklyn or delivery across New York & the Tri-State area.</p>
+            <a href="#contact" class="service-card-btn">Get a Quote</a>
+          </div>
+        </div>
+
       </div>
     </section>
+
+   
 
     <!-- MARQUEE -->
     <div class="marquee-strip">
@@ -1139,74 +1379,50 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="services-bg" style="padding: 80px 5%">
-      <div class="section-inner">
-        <div style="text-align: center; margin-bottom: 48px">
-          <div class="section-tag" style="color: var(--gold)">
-            What We Offer
-          </div>
-          <div class="divider" style="margin: 10px auto 0"></div>
-          <h2
-            class="section-title"
-            style="color: var(--white); margin-top: 10px">
-            Every Cake, a <em>Masterpiece</em>
-          </h2>
-          <p
-            class="section-sub"
-            style="color: rgba(255, 255, 255, 0.6); margin: 0 auto">
-            From intimate celebrations to grand events, we craft cakes that
-            leave lasting impressions.
+     <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-pattern"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-tag">✦ Est. 2000 · BROOKLYN, New York</div>
+          <h1>Custom Cakes That <em>Bring Smiles</em> to Every Occasion</h1>
+          <p>
+            Renowned BROOKLYN bakery specializing in handcrafted custom cakes for
+            birthdays, weddings, holidays, and every celebration in between.
+            Quality, freshness, and joy in every slice.
           </p>
+          <div class="hero-btns">
+            <a href="#menu" class="btn-primary">Explore Our Cakes</a>
+            <a href="#contact" class="btn-outline">Get a Quote</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="num">25+</div>
+              <div class="label">Years Baking</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">1000s</div>
+              <div class="label">Happy Customers</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num">100%</div>
+              <div class="label">Natural Ingredients</div>
+            </div>
+          </div>
         </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">🎂</div>
-            <h3>Birthday Cakes</h3>
-            <p>
-              Make their day unforgettable. Fully custom designs in any flavor,
-              size, or theme — from elegant to playful.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">💍</div>
-            <h3>Wedding Cakes</h3>
-            <p>
-              Your love story deserves a show-stopping centerpiece. We work
-              closely with couples to design the cake of their dreams.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🎄</div>
-            <h3>Holiday & Seasonal</h3>
-            <p>
-              From Christmas to Thanksgiving to cultural celebrations, we bake
-              cakes that honor tradition with exquisite flavor.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🍫</div>
-            <h3>Specialty Flavors</h3>
-            <p>
-              Our signature Blue Velvet Birthday Cake and Chocolate Ganache
-              Covered Cheesecake are customer favorites for a reason.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🎓</div>
-            <h3>Milestone Events</h3>
-            <p>
-              Graduations, baby showers, anniversaries — celebrate every
-              milestone with a cake as special as the moment.
-            </p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🚚</div>
-            <h3>Delivery & Pickup</h3>
-            <p>
-              Convenient pickup from our BROOKLYN location, or delivery across New
-              York and the Tri-State area. Freshness guaranteed.
-            </p>
+        <div class="hero-visual">
+          <div class="hero-cake-card">
+            <div class="cake-emoji"></div>
+            <h3>Signature Custom Cakes</h3>
+            <p>Handcrafted with love for your most special moments</p>
+            <br />
+            <a
+              href="#menu"
+              class="btn-primary"
+              style="font-size: 14px; padding: 10px 24px"
+              >View Menu</a
+            >
           </div>
         </div>
       </div>
@@ -1215,9 +1431,9 @@
     <!-- FEATURED MENU -->
     <section id="menu">
       <div class="section-inner">
-        <div class="section-tag">Our Menu</div>
-        <div class="divider"></div>
-        <h2 class="section-title">Discover <em>Delicious</em> Creations</h2>
+        <!-- <div class="section-tag">Our Menu</div> -->
+        <!-- <div class="divider"></div> -->
+        <h2 class="section-title menu-title-center">Our Menu</h2>
         <p class="section-sub">
           Every cake is baked fresh to order using only natural ingredients.
           Browse our most popular creations below.
@@ -1637,5 +1853,50 @@
         <span>Crafted with 🍰 in the BROOKLYN, New York</span>
       </div>
     </footer>
+    <!-- ORDER NOW POPUP -->
+    <div class="order-modal-overlay" id="orderModal" onclick="closeOrderModalOnOverlay(event)">
+      <div class="order-modal">
+        <button class="order-modal-close" onclick="closeOrderModal()" aria-label="Close">&times;</button>
+        <div class="order-modal-icon">🎂</div>
+        <h2>Order Online</h2>
+        <p>Choose your preferred delivery platform and get Slices by Smiles Douglas delivered straight to your door.</p>
+        <div class="order-modal-options">
+          <a href="https://www.ubereats.com" target="_blank" rel="noopener" class="order-platform-btn btn-ubereats">
+            <div class="platform-logo">🛵</div>
+            <div class="platform-info">
+              <span class="platform-name">Uber Eats</span>
+              <span class="platform-sub">Fast delivery · Track your order</span>
+            </div>
+          </a>
+          <div class="order-modal-divider">or</div>
+          <a href="https://www.doordash.com" target="_blank" rel="noopener" class="order-platform-btn btn-doordash">
+            <div class="platform-logo">🚗</div>
+            <div class="platform-info">
+              <span class="platform-name">DoorDash</span>
+              <span class="platform-sub">Quick delivery · Easy ordering</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openOrderModal(e) {
+        if (e) e.preventDefault();
+        document.getElementById('orderModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeOrderModal() {
+        document.getElementById('orderModal').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      function closeOrderModalOnOverlay(e) {
+        if (e.target === document.getElementById('orderModal')) closeOrderModal();
+      }
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeOrderModal();
+      });
+        setTimeout(openOrderModal, 9000);
+    </script>
   </body>
 </html>
