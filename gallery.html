@@ -20,30 +20,23 @@
 
       /* ---- NAV ---- */
       nav { background: #000; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 16px rgba(61, 42, 20, 0.07); }
-      .nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 5%; height: 96px; gap: 24px; overflow: visible; }
+      .nav-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 5%; height: 180px; gap: 24px; overflow: visible; }
       .logo { display: flex; align-items: center; gap: 12px; }
       nav .logo { position: absolute; left: 50%; transform: translateX(-50%); }
-      .logo-icon { width: 96px; height: 96px; background: url('cake_pictures/douglas_cake-new.png') center/contain no-repeat; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0; color: transparent; }
+      .logo-icon { width: 320px; height: 320px; background: url('cake_pictures/logo.png') center/contain no-repeat; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0; color: transparent; }
       .logo-text { font-family: var(--font-display); font-size: 20px; color: var(--gold-light); line-height: 1.2; }
       .logo-text span { display: block; font-size: 11px; font-family: var(--font-body); font-weight: 500; color: rgba(255,255,255,0.75); letter-spacing: 0.12em; text-transform: uppercase; }
-      .nav-links { display: none; list-style: none; position: absolute; top: 96px; right: 0; left: 0; background: #000; flex-direction: column; width: 100%; box-shadow: 0 8px 24px rgba(61, 42, 20, 0.12); border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius); padding: 10px 0; z-index: 102; }
+      .nav-links { display: none; list-style: none; position: absolute; top: 180px; right: 0; left: 0; background: #000; flex-direction: column; width: 100%; box-shadow: 0 8px 24px rgba(61, 42, 20, 0.12); border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius); padding: 10px 0; z-index: 102; }
       .nav-links.open { display: flex; }
       .nav-links a { font-size: 14px; font-weight: 500; color: var(--gold-light); padding: 10px 14px; border-radius: var(--radius); transition: background 0.15s, color 0.15s; }
       .nav-links a:hover { background: rgba(245,230,200,0.2); color: var(--white); }
       .nav-cta { background: var(--gold); color: var(--white) !important; border-radius: 24px !important; padding: 8px 20px !important; font-weight: 600 !important; transition: background 0.15s !important; }
       .nav-cta:hover { background: var(--gold-dark) !important; }
-      .nav-toggle { display: block; background: none; border: none; font-size: 28px; color: var(--gold-light); cursor: pointer; margin-left: auto; z-index: 101; }
-      @media (max-width: 768px) {
-        .nav-inner { height: 88px; gap: 12px; }
-        .logo-icon { width: 82px; height: 82px; border-radius: 8px; }
-        .logo-text { font-size: 16px; }
-        .logo-text span { font-size: 9px; }
-        .nav-links { top: 88px; box-shadow: 0 8px 24px rgba(61, 42, 20, 0.08); }
-      }
+      .nav-toggle { display: block; background: none; border: none; font-size: 30px; color: var(--gold-light); cursor: pointer; margin-left: auto; z-index: 101; }
 
       /* ---- PAGE HEADER ---- */
       .page-header {
-        background: var(--brown);
+        background: #fff;
         padding: 60px 5% 50px;
         text-align: center;
         position: relative;
@@ -53,20 +46,55 @@
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 70% 40%, rgba(201,151,58,0.15) 0%, transparent 60%);
+        background: radial-gradient(circle at 70% 40%, rgba(201,151,58,0.08) 0%, transparent 60%);
       }
       .page-header .section-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-      .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); color: var(--white); line-height: 1.15; margin-bottom: 14px; }
+      .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); color: var(--brown); line-height: 1.15; margin-bottom: 14px; }
       .page-header h1 em { color: var(--gold); font-style: italic; }
-      .page-header p { color: rgba(255,255,255,0.7); font-size: 17px; max-width: 520px; margin: 0 auto; }
+      .page-header p { color: var(--muted); font-size: 17px; max-width: 520px; margin: 0 auto; }
       .divider { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin: 0 auto 20px; }
 
       /* ---- GALLERY ---- */
-      .gallery-section { padding: 64px 5%; max-width: 1300px; margin: auto; }
+      .gallery-section { padding: 64px 5%; max-width: 1300px; margin: auto; background: #fff; }
+      .gallery-category-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 26px;
+        flex-wrap: wrap;
+      }
+      .gallery-category-btn {
+        border: 1px solid var(--border);
+        background: #fff;
+        color: #000 !important;
+        border-radius: 22px;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+      }
+      .gallery-category-btn:hover {
+        border-color: var(--gold-dark);
+      }
+      .gallery-category-btn.active {
+        background: #000;
+        color: #fff !important;
+        border-color: #000;
+      }
       .gallery-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
+      }
+      .gallery-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 26px;
+      }
+      .gallery-view-more.is-hidden {
+        display: none;
       }
       .gallery-card {
         background: var(--white);
@@ -190,6 +218,9 @@
       @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
       @media (max-width: 560px) {
         .topbar { justify-content: center; text-align: center; gap: 6px; font-size: 12px; }
+        .nav-links { display: none; position: absolute; top: 180px; right: 0; left: 0; background: #000; flex-direction: column; width: 100%; box-shadow: 0 8px 24px rgba(61, 42, 20, 0.12); border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius); padding: 10px 0; z-index: 102; }
+        .nav-links.open { display: flex; }
+        .nav-links a { padding: 10px 14px; }
         .gallery-grid { grid-template-columns: 1fr; }
         .gallery-card img { height: 220px; }
         .gallery-card-body { padding: 14px 16px 16px; }
@@ -199,31 +230,24 @@
     </style>
   </head>
   <body>
-    <!-- TOP BAR -->
-    <div class="topbar">
-      <span>📍  BROOKLYN, NY &nbsp;·&nbsp; Proudly Serving New York & Tri-State Area</span>
-      <span>
-        <a href="tel:7187660032">📞 (718) 766-0032</a>
-        &nbsp;·&nbsp;
-        <a href="mailto:cake@slicesbysmiledouglas.com">cake@slicesbysmiledouglas.com</a>
-      </span>
-    </div>
+   
 
     <!-- NAV -->
     <nav>
       <div class="nav-inner">
         <a href="index.html" class="logo">
           <div class="logo-icon">S</div>
-          <div class="logo-text">
+          <!-- <div class="logo-text">
             Slices by Smiles Douglas
             <span>Custom Cakes · BROOKLYN, NY</span>
-          </div>
+          </div> -->
         </a>
         <button class="nav-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <ul class="nav-links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="index.html#menu">Our Cakes</a></li>
+          
+          <li><a href="index.html#menu">Menu</a></li>
           <li><a href="gallery.html">Custom Cake Gallery</a></li>
+          <li><a href="index.html#how">How to Make Custom Orders</a></li>
           <li><a href="index.html#testimonials">Reviews</a></li>
           <li><a href="order.html">Wholesale Order</a></li>
           <li><a href="index.html#contact" class="nav-cta">Order Now</a></li>
@@ -241,56 +265,16 @@
 
     <!-- GALLERY -->
     <div class="gallery-section">
-      <div class="gallery-grid" id="galleryGrid">
-        <div class="gallery-card" onclick="openLightbox(0)">
-          <img src="cake_pictures/cake.png" alt="Blue Velvet Birthday Cake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Blue Velvet Birthday Cake</h3>
-            <span>Signature</span>
-          </div>
-        </div>
-        <div class="gallery-card" onclick="openLightbox(1)">
-          <img src="cake_pictures/chocolate.png" alt="Chocolate Ganache Cheesecake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Chocolate Ganache Cheesecake</h3>
-            <span>Fan Favorite</span>
-          </div>
-        </div>
-        <div class="gallery-card" onclick="openLightbox(2)">
-          <img src="cake_pictures/cake2.png" alt="Elegant Wedding Cake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Elegant Wedding Cake</h3>
-            <span>Wedding</span>
-          </div>
-        </div>
-        <div class="gallery-card" onclick="openLightbox(3)">
-          <img src="cake_pictures/cake_3.png" alt="Fresh Fruit Layer Cake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Fresh Fruit Layer Cake</h3>
-            <span>Seasonal</span>
-          </div>
-        </div>
-        <div class="gallery-card" onclick="openLightbox(4)">
-          <img src="cake_pictures/celebration_cake.png" alt="Celebration Cake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Celebration Cake</h3>
-            <span>Custom</span>
-          </div>
-        </div>
-        <div class="gallery-card" onclick="openLightbox(5)">
-          <img src="cake_pictures/mocha.png" alt="Mocha Cake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Mocha Cake</h3>
-            <span>Specialty</span>
-          </div>
-        </div>
-        <div class="gallery-card" onclick="openLightbox(6)">
-          <img src="cake_pictures/frozen.png" alt="Frozen Cake" loading="lazy" />
-          <div class="gallery-card-body">
-            <h3>Frozen Cake</h3>
-            <span>Specialty</span>
-          </div>
-        </div>
+      <div class="gallery-category-selector" aria-label="Event Cake Categories">
+        <button class="gallery-category-btn active" type="button" data-category="all" onclick="selectGalleryCategory('all')">All Cakes</button>
+        <button class="gallery-category-btn" type="button" data-category="birthday" onclick="selectGalleryCategory('birthday')">Birthday Cakes</button>
+        <button class="gallery-category-btn" type="button" data-category="events" onclick="selectGalleryCategory('events')">Event Cakes</button>
+        <button class="gallery-category-btn" type="button" data-category="anniversary" onclick="selectGalleryCategory('anniversary')">Anniversary Cakes</button>
+        <button class="gallery-category-btn" type="button" data-category="graduation" onclick="selectGalleryCategory('graduation')">Graduation Cakes</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <div class="gallery-actions">
+        <button id="galleryViewMoreBtn" class="btn-primary gallery-view-more" type="button" onclick="showMoreGalleryItems()">View More</button>
       </div>
     </div>
 
@@ -361,18 +345,90 @@
     </div>
 
     <script>
-      const images = [
-        { src: 'cake_pictures/cake.png', caption: 'Blue Velvet Birthday Cake' },
-        { src: 'cake_pictures/chocolate.png', caption: 'Chocolate Ganache Cheesecake' },
-        { src: 'cake_pictures/cake2.png', caption: 'Elegant Wedding Cake' },
-        { src: 'cake_pictures/cake_3.png', caption: 'Fresh Fruit Layer Cake' },
-        { src: 'cake_pictures/celebration_cake.png', caption: 'Celebration Cake' },
-        { src: 'cake_pictures/mocha.png', caption: 'Mocha Cake' },
-        { src: 'cake_pictures/frozen.png', caption: 'Frozen Cake' },
+      const galleryItems = [
+        { src: 'cake_pictures/custom_cakes/Birthday26.jpg', title: 'Birthday Cake 26', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_23.JPG', title: 'Birthday Cake 23', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_25.jpg', title: 'Birthday Cake 25', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_3.jpg', title: 'Birthday Cake 3', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_4.jpg', title: 'Birthday Cake 4', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_5.jpg', title: 'Birthday Cake 5', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_6.jpg', title: 'Birthday Cake 6', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake.jpg', title: 'Birthday Cake', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake.png', title: 'Birthday Cake Design', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake10.jpg', title: 'Birthday Cake 10', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake11.JPG', title: 'Birthday Cake 11', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake14.jpg', title: 'Birthday Cake 14', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake16.JPG', title: 'Birthday Cake 16', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake27.jpg', title: 'Birthday Cake 27', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake29.png', title: 'Birthday Cake 29', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake33.JPG', title: 'Birthday Cake 33', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake7.jpg', title: 'Birthday Cake 7', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Birthday_Cake8.png', title: 'Birthday Cake 8', category: 'birthday', label: 'Birthday' },
+        { src: 'cake_pictures/custom_cakes/Event_Cake.jpg', title: 'Event Cake', category: 'events', label: 'Event' },
+        { src: 'cake_pictures/custom_cakes/Event_Cake2.jpg', title: 'Event Cake 2', category: 'events', label: 'Event' },
+        { src: 'cake_pictures/custom_cakes/Event_Cake4.jpg', title: 'Event Cake 4', category: 'events', label: 'Event' },
+        { src: 'cake_pictures/custom_cakes/Rose_cake2.JPG', title: 'Rose Event Cake', category: 'events', label: 'Event' },
+        { src: 'cake_pictures/custom_cakes/Anniversary_Cake.JPG', title: 'Anniversary Cake', category: 'anniversary', label: 'Anniversary' },
+        { src: 'cake_pictures/custom_cakes/Graduation_cake.jpg', title: 'Graduation Cake', category: 'graduation', label: 'Graduation' }
       ];
+
+      let currentCategory = 'all';
+      let filteredItems = galleryItems.slice();
+      const galleryVisibleLimit = 8;
+      const galleryExpandedState = {
+        all: false,
+        birthday: false,
+        events: false,
+        anniversary: false,
+        graduation: false
+      };
       let current = 0;
 
+      function renderGallery() {
+        const galleryGrid = document.getElementById('galleryGrid');
+        const isExpanded = !!galleryExpandedState[currentCategory];
+        const visibleItems = isExpanded ? filteredItems : filteredItems.slice(0, galleryVisibleLimit);
+        const cardsHtml = visibleItems.map(function(item, index) {
+          return '<div class="gallery-card" onclick="openLightbox(' + index + ')">' +
+            '<img src="' + item.src + '" alt="' + item.title + '" loading="lazy" />' +
+            '<div class="gallery-card-body">' +
+              '<h3>' + item.title + '</h3>' +
+              '<span>' + item.label + '</span>' +
+            '</div>' +
+          '</div>';
+        }).join('');
+        galleryGrid.innerHTML = cardsHtml;
+
+        const viewMoreButton = document.getElementById('galleryViewMoreBtn');
+        if (!viewMoreButton) {
+          return;
+        }
+        const shouldShowButton = filteredItems.length > galleryVisibleLimit && !isExpanded;
+        viewMoreButton.classList.toggle('is-hidden', !shouldShowButton);
+      }
+
+      function selectGalleryCategory(category) {
+        currentCategory = category;
+        const categoryButtons = document.querySelectorAll('.gallery-category-btn');
+        categoryButtons.forEach(function(button) {
+          const isActive = button.getAttribute('data-category') === category;
+          button.classList.toggle('active', isActive);
+        });
+
+        filteredItems = category === 'all'
+          ? galleryItems.slice()
+          : galleryItems.filter(function(item) { return item.category === category; });
+
+        renderGallery();
+      }
+
+      function showMoreGalleryItems() {
+        galleryExpandedState[currentCategory] = true;
+        renderGallery();
+      }
+
       function openLightbox(index) {
+        if (!filteredItems.length) return;
         current = index;
         updateLightbox();
         document.getElementById('lightbox').classList.add('active');
@@ -383,13 +439,14 @@
         document.body.style.overflow = '';
       }
       function changeImage(dir) {
-        current = (current + dir + images.length) % images.length;
+        if (!filteredItems.length) return;
+        current = (current + dir + filteredItems.length) % filteredItems.length;
         updateLightbox();
       }
       function updateLightbox() {
-        document.getElementById('lightbox-img').src = images[current].src;
-        document.getElementById('lightbox-img').alt = images[current].caption;
-        document.getElementById('lightbox-caption').textContent = images[current].caption;
+        document.getElementById('lightbox-img').src = filteredItems[current].src;
+        document.getElementById('lightbox-img').alt = filteredItems[current].title;
+        document.getElementById('lightbox-caption').textContent = filteredItems[current].title;
       }
       document.getElementById('lightbox').addEventListener('click', function(e) {
         if (e.target === this) closeLightbox();
@@ -400,6 +457,8 @@
         if (e.key === 'ArrowLeft') changeImage(-1);
         if (e.key === 'ArrowRight') changeImage(1);
       });
+
+      selectGalleryCategory('all');
     </script>
   </body>
 </html>
