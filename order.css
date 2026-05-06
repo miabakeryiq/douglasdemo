@@ -40,17 +40,19 @@ section { padding: 80px 5%; }
 .section-title em { font-style: italic; color: var(--gold-dark); }
 .divider { width: 50px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 24px; }
 /* ---- FOOTER ---- */
-footer { background: var(--brown); color: var(--white); padding: 60px 5% 24px; }
+footer { background: #000; color: #fff; padding: 60px 5% 24px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
 .footer-brand { margin-bottom: 24px; }
 .footer-brand .logo { margin-bottom: 12px; }
-.footer-brand p { color: rgba(255,255,255,0.7); font-size: 14px; }
-.footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: var(--gold-light); }
+.footer-brand p { color: #fff; font-size: 14px; }
+.footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: #fff; }
 .footer-col ul { list-style: none; padding: 0; }
 .footer-col ul li { margin-bottom: 8px; }
 .footer-col ul a { color: var(--white); opacity: 0.85; font-size: 14px; }
 .footer-col ul a:hover { opacity: 1; text-decoration: underline; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.6); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: #fff; }
+footer,
+footer * { color: #fff !important; }
 nav .nav-toggle,
 nav .nav-links a,
 nav .nav-cta,

@@ -74,17 +74,17 @@
       .about-list li:last-child { border-bottom: none; }
       .check { width: 22px; height: 22px; min-width: 22px; background: var(--gold-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-dark); font-size: 12px; font-weight: 700; margin-top: 2px; }
       /* ---- FOOTER ---- */
-      footer { background: var(--brown); color: var(--white); padding: 60px 5% 24px; }
+      footer { background: #000; color: #fff; padding: 60px 5% 24px; }
       .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: auto; }
       .footer-brand { margin-bottom: 24px; }
       .footer-brand .logo { margin-bottom: 12px; }
-      .footer-brand p { color: rgba(255,255,255,0.7); font-size: 14px; }
-      .footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: var(--gold-light); }
+      .footer-brand p { color: #fff; font-size: 14px; }
+      .footer-col h5 { font-size: 15px; font-weight: 700; margin-bottom: 14px; color: #fff; }
       .footer-col ul { list-style: none; padding: 0; }
       .footer-col ul li { margin-bottom: 8px; }
       .footer-col ul a { color: var(--white); opacity: 0.85; font-size: 14px; }
       .footer-col ul a:hover { opacity: 1; text-decoration: underline; }
-      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.6); }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: #fff; }
 
       body * { color: #000 !important; }
       nav .nav-toggle,
@@ -92,6 +92,8 @@
       nav .nav-cta,
       nav .logo-text,
       nav .logo-text span { color: #fff !important; }
+      body footer,
+      body footer * { color: #fff !important; }
 
       /* ---- FINAL RESPONSIVE OVERRIDES ---- */
       @media (max-width: 900px) {
@@ -189,10 +191,7 @@
         <div class="footer-brand">
           <a href="index.html" class="logo">
             <div class="logo-icon">S</div>
-            <div class="logo-text">
-              Slices by Smiles Douglas
-              <span style="color: rgba(255, 255, 255, 0.4)">Custom Cakes · BROOKLYN, NY</span>
-            </div>
+            
           </a>
           <p>
             Bringing smiles to New York since 2000. Handcrafted custom cakes made with love, natural ingredients, and a dedication to quality that never wavers.
